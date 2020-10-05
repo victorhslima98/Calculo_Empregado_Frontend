@@ -13,6 +13,8 @@ export default function Login() {
 		inss = bruto * 0.09
 	} else if (bruto >= 2822.91 && bruto <= 5645.8) {
 		inss = bruto * 0.11
+	} else if (bruto >= 5645.81) {
+		inss = 5645.8 * 0.11
 	}
 
 	if (bruto >= 1903.99 && bruto <= 2826.65) {
@@ -27,7 +29,7 @@ export default function Login() {
 	try {
 		useEffect(() => {
 			if (bruto >= 1045) {
-				setTotal(bruto - inss - irpf)
+				setTotal(Number(bruto - inss - irpf).toFixed(2))
 			} else {
 				setTotal(0)
 			}
